@@ -13,7 +13,7 @@ export const registeredRoutes = {
         component: <h1>auth</h1>,
         isAuthRequired: true,
     },
-    "/error": {
+    "/error/:message": {
         component: <Error />,
         isAuthRequired: false,
     },

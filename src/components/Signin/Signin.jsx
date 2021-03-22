@@ -6,15 +6,16 @@ const Signin = ({ onErrorPath }) => {
     const auth = useAuth();
     const history = useHistory();
 
-    const onError = () => {
-        history.push(onErrorPath);
+    const onError = (e) => {
+        console.log(e);
+        history.push(onErrorPath + "/" + e.message);
     };
 
     return (
         <section className={css.singin_container}>
             <button
                 onClick={() =>
-                    auth.userManager.signinRedirect().catch((e) => onError())
+                    auth.userManager.signinRedirect().catch((e) => onError(e))
                 }
             >
                 Sign in!
